@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	content, err := os.ReadFile("test-files/sample.txt")
+	content, err := os.ReadFile("test-files/hexa-decimal.txt")
 	if err != nil {
 		fmt.Println("Error reading file:", err)
 		return

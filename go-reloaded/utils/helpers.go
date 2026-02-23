@@ -20,6 +20,22 @@ func capitalizeAllLettters(word string) string {
 	return capitalizeWord
 }
 
+func binToDecimal(word string) string {
+	output, err := strconv.ParseInt(word, 2, 64)
+	if err != nil {
+		return word
+	}
+	return fmt.Sprint(output)
+}
+
+func hexToDecimal(word string) string {
+	output, err := strconv.ParseInt(word, 16, 64)
+	if err != nil {
+		return word
+	}
+	return fmt.Sprint(output)
+}
+
 func changeLetterToLowerCase(word string) string {
 	lowerCaseLetter := strings.ToLower(word)
 	return lowerCaseLetter
@@ -70,6 +86,16 @@ func LoopText(file_content string) string {
 				capWords[index] = ""
 				capWords[index-1] = changeLetterToLowerCase(capWords[index-1])
 			}
+		case "(bin)": 
+		if index > 0 {
+			capWords[index] = ""
+			capWords[index -1] = binToDecimal(capWords[index-1])
+		}
+		case "(hex)":
+		if index > 0 {
+			capWords[index] = ""
+			capWords[index -1] = hexToDecimal(capWords[index-1])
+		}
 		}
 		if checkForVowels(comp) {
 			if capWords[index-1] == "a" {
