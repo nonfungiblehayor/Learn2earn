@@ -99,7 +99,6 @@ func LoopText(file_content string) string {
 		}
 		if checkForVowels(comp) {
 			if capWords[index-1] == "a" {
-				fmt.Println(capWords[index-1])
 				capWords[index-1] = "an"
 			}
 		}
