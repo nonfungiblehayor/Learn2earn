@@ -6,6 +6,7 @@ import (
 	"github.com/nonfungiblehayor/Learn2earn.git/utils"
 )
 
+
 func main() {
 	inputFile := os.Args[1]
 	content, err := os.ReadFile(inputFile)

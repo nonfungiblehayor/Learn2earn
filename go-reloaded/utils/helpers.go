@@ -41,6 +41,7 @@ func changeLetterToLowerCase(word string) string {
 	return lowerCaseLetter
 }
 
+
 func checkForVowels(word string) bool {
 	vowels := "aeiou"
 	arrFormat := strings.Split(word, "")
@@ -51,6 +52,7 @@ func checkForVowels(word string) bool {
 	}
 	return false
 }
+
 
 func fixExtraSpace(sentence string) string {
 	re := regexp.MustCompile(`\s+([.,!?:;])`)
@@ -103,6 +105,16 @@ func LoopText(file_content string) string {
 			}
 		}
 		if strings.HasPrefix(comp, "(cap,") {
+			numStr := strings.TrimSuffix(strings.TrimPrefix(comp, "(cap, "), ")")
+			n, _ := strconv.Atoi(numStr)
+			capWords[index] = ""
+			count := 0
+				for i := index - 1; i >= 0 && count < n; i-- {
+					capWords[i] = capitalizeFirstLetter(capWords[i])
+					count++
+			}
+		}
+		if strings.HasPrefix(comp, "(up,") {
 			numStr := strings.TrimSuffix(strings.TrimPrefix(comp, "(cap, "), ")")
 			n, _ := strconv.Atoi(numStr)
 			capWords[index] = ""
